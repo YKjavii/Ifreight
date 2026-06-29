@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IfreightJa — Fast. Smart. Seamless.</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:#E6E8EB;color:#11302D;font-family:'Satoshi',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+::selection{background:#13A69C;color:#fff;}
+@keyframes ifj-fadeup{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:none;}}
+@keyframes ifj-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes ifj-dash{to{stroke-dashoffset:0;}}
+@keyframes ifj-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@keyframes ifj-ping{0%{transform:scale(.5);opacity:.8;}80%{transform:scale(2.6);opacity:0;}100%{opacity:0;}}
+a{text-decoration:none;}
+button{font-family:'Satoshi',-apple-system,system-ui,sans-serif;}
+
+/* Nav states */
+.ifj-nav{position:fixed;top:0;left:0;width:100%;z-index:100;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .35s ease,box-shadow .35s ease,border-color .35s ease;background:transparent;border-bottom:1px solid transparent;box-shadow:none;}
+.ifj-nav.scrolled{background:rgba(248,249,251,0.82);border-bottom:1px solid #ECECEC;box-shadow:0 1px 0 rgba(17,48,45,.04);}
+.ifj-nav .nav-link{color:#fff;transition:color .35s ease;}
+.ifj-nav.scrolled .nav-link{color:#11302D;}
+.ifj-nav .nav-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);transition:background .35s ease,border-color .35s ease;}
+.ifj-nav.scrolled .nav-pill{background:rgba(17,48,45,0.04);border:1px solid #ECECEC;}
+.ifj-nav .ifj-burger{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.22);color:#fff;}
+.ifj-nav.scrolled .ifj-burger{background:rgba(17,48,45,0.04);border:1px solid #ECECEC;color:#11302D;}
+
+/* Hover effects */
+.ifj-card:hover{transform:translateY(-8px);box-shadow:0 22px 50px rgba(17,48,45,.1);border-color:#11302D;}
+.ifj-card-sm:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(17,48,45,.1);border-color:#11302D;}
+.ifj-step-num:hover{border-color:#13A69C;color:#13A69C;transform:translateY(-4px);}
+.ifj-rate-row:hover{background:#F6F8F7;}
+.ifj-faq-item:hover{border-color:#C6CCCA;}
+.ifj-social:hover{background:#13A69C;border-color:#13A69C;color:#fff;}
+.ifj-footer-link:hover{color:#13A69C;}
+.ifj-btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(19,166,156,.5);}
+.ifj-btn-secondary:hover{background:rgba(255,255,255,.2);transform:translateY(-3px);}
+.ifj-btn-cta:hover{transform:translateY(-2px);}
+.ifj-nav-arrow-l:hover{border-color:#11302D;transform:translateX(-2px);}
+.ifj-nav-arrow-r:hover{border-color:#11302D;transform:translateX(2px);}
+.ifj-talk-link:hover{gap:14px;color:#13A69C;border-color:#13A69C;}
+.ifj-mobile-link:hover{color:#13A69C;padding-left:10px;}
+
+@media (max-width:1080px){.ifj-feat-grid,.ifj-serv-grid{grid-template-columns:repeat(2,1fr) !important;}.ifj-stat-grid{grid-template-columns:repeat(3,1fr) !important;}.ifj-how-grid{grid-template-columns:repeat(3,1fr) !important;row-gap:44px !important;}.ifj-howline{display:none !important;}}
+@media (max-width:880px){.ifj-hero-grid{grid-template-columns:1fr !important;}.ifj-twocol{grid-template-columns:1fr !important;}.ifj-navlinks{display:none !important;}.ifj-navactions{display:none !important;}.ifj-burger{display:inline-flex !important;}.ifj-logo{height:60px !important;}.ifj-nav-inner{padding:12px 20px !important;}.ifj-footer-grid{grid-template-columns:1fr 1fr !important;}}
+@media (max-width:620px){.ifj-feat-grid,.ifj-serv-grid,.ifj-stat-grid,.ifj-how-grid{grid-template-columns:1fr !important;}.ifj-hero-inner{padding-top:120px !important;padding-bottom:56px !important;}.ifj-logo{height:50px !important;}.ifj-footer-grid{grid-template-columns:1fr !important;}}
+</style>
+</head>
+<body>
+<div style="width:100%;overflow-x:hidden;position:relative;">
+
+  <!-- ================= NAV ================= -->
+  <nav class="ifj-nav" id="mainNav">
+    <div class="ifj-nav-inner" style="max-width:1280px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#top" style="display:flex;align-items:center;flex:0 0 auto;">
+        <img class="ifj-logo" src="assets/ifreightja-logo.png" alt="IfreightJa" style="height:78px;width:auto;display:block;" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=font-size:24px;font-weight:900;color:inherit>IfreightJa</span>'"/>
+      </a>
+      <div class="ifj-navlinks nav-pill" style="display:flex;align-items:center;gap:4px;padding:7px 10px;border-radius:999px;">
+        <a href="#top" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">Home</a>
+        <a href="#how" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">How It Works</a>
+        <a href="#services" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">Services</a>
+        <a href="#signup" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">Tracking</a>
+        <a href="#pricing" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">Rates</a>
+        <a href="#about" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">About</a>
+        <a href="#contact" class="nav-link" style="font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;">Contact</a>
+      </div>
+      <div class="ifj-navactions" style="display:flex;align-items:center;gap:18px;">
+        <a href="#signup" class="nav-link" style="font-size:14px;font-weight:600;">Login</a>
+        <a href="#signup" style="font-size:14px;font-weight:700;background:#13A69C;color:#fff;padding:12px 22px;border-radius:999px;box-shadow:0 6px 20px rgba(19,166,156,.32);transition:transform .25s ease,box-shadow .25s ease;">Get Started</a>
+      </div>
+      <button class="ifj-burger" onclick="toggleMenu()" aria-label="Open menu" style="display:none;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;font-size:21px;line-height:1;cursor:pointer;flex:0 0 auto;transition:background .35s ease,border-color .35s ease,color .35s ease;">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div id="mobileMenu" style="position:fixed;inset:0;z-index:200;background:rgba(8,28,25,0.97);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s ease;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 24px;flex:0 0 auto;">
+      <span style="font-size:24px;font-weight:900;color:#fff;">IfreightJa</span>
+      <button onclick="closeMenu()" aria-label="Close menu" style="width:46px;height:46px;border-radius:13px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:21px;line-height:1;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;">&#10005;</button>
+    </div>
+    <nav style="flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;padding:0 28px;gap:2px;">
+      <a href="#top" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">Home</a>
+      <a href="#how" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">How It Works</a>
+      <a href="#services" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">Services</a>
+      <a href="#signup" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">Tracking</a>
+      <a href="#pricing" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">Rates</a>
+      <a href="#about" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">About</a>
+      <a href="#contact" onclick="closeMenu()" class="ifj-mobile-link" style="color:#fff;font-size:34px;font-weight:800;letter-spacing:-.03em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease,padding-left .2s ease;">Contact</a>
+    </nav>
+    <div style="flex:0 0 auto;padding:28px;display:flex;flex-direction:column;gap:14px;">
+      <a href="#signup" onclick="closeMenu()" style="text-align:center;font-size:17px;font-weight:700;background:#13A69C;color:#fff;padding:18px;border-radius:14px;box-shadow:0 10px 26px rgba(19,166,156,.3);">Get Started</a>
+      <a href="#signup" onclick="closeMenu()" style="text-align:center;font-size:16px;font-weight:600;color:#fff;padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,.22);">Login</a>
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section id="top" style="position:relative;min-height:100vh;display:flex;align-items:stretch;overflow:hidden;">
+    <div style="position:absolute;inset:0;z-index:0;background:#0C2522 url('assets/hero-port.jpg') center/cover no-repeat;"></div>
+    <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,26,24,.70) 0%,rgba(6,26,24,.48) 40%,rgba(6,26,24,.85) 100%);"></div>
+    <div class="ifj-hero-grid ifj-hero-inner" style="position:relative;z-index:2;max-width:1280px;margin:0 auto;width:100%;padding:150px 32px 76px;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:end;">
+      <div style="animation:ifj-fadeup .8s ease both;">
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+          <span style="width:26px;height:1px;background:#13A69C;"></span>Freight forwarding &middot; made simple
+        </div>
+        <h1 style="margin:0;color:#fff;font-weight:900;font-size:clamp(46px,7.4vw,108px);line-height:.92;letter-spacing:-.045em;">Fast, Smart,<br/>and Seamless<br/><span style="color:#13A69C;">to Jamaica.</span></h1>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;">
+          <a href="#signup" class="ifj-btn-primary" style="font-size:16px;font-weight:700;background:#13A69C;color:#fff;padding:17px 32px;border-radius:999px;box-shadow:0 10px 30px rgba(19,166,156,.4);transition:transform .25s ease,box-shadow .25s ease;">Get Started</a>
+          <a href="#signup" class="ifj-btn-secondary" style="font-size:16px;font-weight:600;color:#fff;padding:17px 30px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);backdrop-filter:blur(8px);transition:background .25s ease,transform .25s ease;">Track Package</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:22px 30px;margin-top:40px;">
+          <div style="display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.82);font-size:14.5px;font-weight:500;"><span style="width:20px;height:20px;border-radius:999px;background:rgba(19,166,156,.16);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Secure Shipping</div>
+          <div style="display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.82);font-size:14.5px;font-weight:500;"><span style="width:20px;height:20px;border-radius:999px;background:rgba(19,166,156,.16);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Customs Assistance</div>
+          <div style="display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.82);font-size:14.5px;font-weight:500;"><span style="width:20px;height:20px;border-radius:999px;background:rgba(19,166,156,.16);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast Delivery</div>
+          <div style="display:flex;align-items:center;gap:9px;color:rgba(255,255,255,.82);font-size:14.5px;font-weight:500;"><span style="width:20px;height:20px;border-radius:999px;background:rgba(19,166,156,.16);display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Real-Time Tracking</div>
+        </div>
+      </div>
+
+      <!-- floating signup card -->
+      <div id="signup" style="align-self:center;background:rgba(255,255,255,.97);border:1px solid rgba(255,255,255,.6);border-radius:24px;padding:34px 32px;box-shadow:0 30px 70px rgba(6,26,24,.4);animation:ifj-fadeup 1s ease .15s both;">
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#13A69C;font-weight:700;">Free account</div>
+        <h3 style="margin:10px 0 0;font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1.12;">Create your free account.</h3>
+        <div style="display:flex;flex-direction:column;gap:14px;margin:24px 0 26px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:#33403D;"><span style="width:22px;height:22px;border-radius:999px;background:#11302D;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Free U.S. shipping address</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:#33403D;"><span style="width:22px;height:22px;border-radius:999px;background:#11302D;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Live shipment tracking</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:#33403D;"><span style="width:22px;height:22px;border-radius:999px;background:#11302D;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Affordable shipping rates</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:15px;font-weight:500;color:#33403D;"><span style="width:22px;height:22px;border-radius:999px;background:#11302D;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6.4l2.6 2.6L10 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Faster delivery</div>
+        </div>
+        <a href="#signup" class="ifj-btn-cta" style="display:block;text-align:center;font-size:16px;font-weight:700;background:#13A69C;color:#fff;padding:16px;border-radius:14px;box-shadow:0 10px 26px rgba(19,166,156,.3);transition:transform .25s ease;">Create Free Account</a>
+        <div style="text-align:center;margin-top:16px;font-size:14px;color:#6E7479;">Already a member? <a href="#signup" style="color:#11302D;font-weight:700;">Log in</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY CHOOSE ================= -->
+  <section style="max-width:1280px;margin:0 auto;padding:120px 32px 30px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:54px;">
+      <div>
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">Why IfreightJa</div>
+        <h2 style="margin:0;font-size:clamp(34px,4.6vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1;max-width:13ch;">Logistics that feels effortless.</h2>
+      </div>
+      <p style="margin:0;max-width:340px;color:#6E7479;font-size:17px;line-height:1.6;">Everything you need to receive your packages in Jamaica — engineered to be fast, transparent and affordable.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="ifj-feat-grid">
+      <div class="ifj-card" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px 28px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:56px;height:56px;border-radius:16px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:26px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 12h12M12 6l6 6-6 6" stroke="#11302D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7h4M3 17h6" stroke="#13A69C" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:21px;font-weight:800;letter-spacing:-.02em;">Fast Shipping</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Express air and ocean options that get your goods moving sooner.</p>
+      </div>
+      <div class="ifj-card" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px 28px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:56px;height:56px;border-radius:16px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:26px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#11302D" stroke-width="2"/><circle cx="12" cy="12" r="8" stroke="#13A69C" stroke-width="2"/><circle cx="12" cy="12" r="1" fill="#11302D"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:21px;font-weight:800;letter-spacing:-.02em;">Real-Time Tracking</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Follow every shipment live from our warehouse to your doorstep.</p>
+      </div>
+      <div class="ifj-card" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px 28px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:56px;height:56px;border-radius:16px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:26px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#11302D" stroke-width="2"/><path d="M12 8v8M9.5 9.8c0-1 1.1-1.8 2.5-1.8s2.5.7 2.5 1.6c0 2.4-5 1.2-5 3.6 0 1 1.1 1.8 2.5 1.8s2.5-.8 2.5-1.8" stroke="#13A69C" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:21px;font-weight:800;letter-spacing:-.02em;">Affordable Rates</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Transparent, weight-based pricing with absolutely no hidden fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section id="how" style="max-width:1280px;margin:0 auto;padding:110px 32px 30px;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">How it works</div>
+      <h2 style="margin:0 auto;font-size:clamp(34px,4.6vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1;max-width:16ch;">From cart to your door in six steps.</h2>
+    </div>
+    <div style="position:relative;">
+      <div style="position:absolute;left:8%;right:8%;top:34px;height:2px;background:linear-gradient(90deg,#ECECEC,#C6CCCA,#ECECEC);" class="ifj-howline"></div>
+      <div style="position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;" class="ifj-how-grid" id="stepsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" style="max-width:1280px;margin:0 auto;padding:110px 32px 30px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:50px;">
+      <div>
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">Our services</div>
+        <h2 style="margin:0;font-size:clamp(34px,4.6vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1;max-width:14ch;">One platform. Every way to ship.</h2>
+      </div>
+      <a href="#contact" class="ifj-talk-link" style="font-size:15px;font-weight:700;color:#11302D;display:inline-flex;align-items:center;gap:8px;padding-bottom:6px;border-bottom:2px solid #11302D;transition:gap .25s ease,color .25s ease,border-color .25s ease;">Talk to our team &rarr;</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;" class="ifj-serv-grid" id="servicesGrid"></div>
+  </section>
+
+  <!-- ================= RATES ================= -->
+  <section id="pricing" style="max-width:1280px;margin:0 auto;padding:110px 32px 30px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:48px;">
+      <div>
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">Rates</div>
+        <h2 style="margin:0;font-size:clamp(34px,4.6vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1;max-width:14ch;">Simple, transparent rates.</h2>
+      </div>
+      <p style="margin:0;max-width:340px;color:#6E7479;font-size:17px;line-height:1.6;">Pay by the pound — here is exactly what it costs to get your package delivered to Jamaica. No hidden fees, ever.</p>
+    </div>
+    <div style="max-width:720px;margin:0 auto;background:#fff;border:1px solid #ECECEC;border-radius:24px;box-shadow:0 24px 60px rgba(17,48,45,.06);padding:10px 12px 14px;">
+      <div style="display:flex;justify-content:space-between;padding:16px 20px 14px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#11302D;font-weight:700;">
+        <span>Package weight</span><span>Shipping rate</span>
+      </div>
+      <div id="ratesTable"></div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:22px 18px 10px;">
+        <p style="margin:0;color:#6E7479;font-size:13px;line-height:1.5;max-width:40ch;">Estimated rates by package weight. Final totals may vary with dimensions and customs duties.</p>
+        <a href="#signup" class="ifj-btn-cta" style="font-size:15px;font-weight:700;background:#13A69C;color:#fff;padding:14px 26px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 22px rgba(19,166,156,.32);transition:transform .25s ease;">Get a Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STATISTICS ================= -->
+  <div id="statsSection" style="width:100%;background:#11302D;margin-top:110px;">
+    <section style="max-width:1280px;margin:0 auto;padding:90px 32px;">
+      <div style="text-align:center;margin-bottom:60px;">
+        <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:16px;">By the numbers</div>
+        <h2 style="margin:0;color:#fff;font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-.04em;line-height:1;">Trusted by thousands shipping to Jamaica.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:920px;margin:0 auto;" class="ifj-stat-grid">
+        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.1);padding:0 8px;">
+          <div id="stat0" style="font-size:clamp(38px,4.4vw,58px);font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1;">0+</div>
+          <div style="margin-top:14px;font-size:14px;font-weight:500;color:rgba(255,255,255,.6);">Packages Delivered</div>
+        </div>
+        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.1);padding:0 8px;">
+          <div id="stat1" style="font-size:clamp(38px,4.4vw,58px);font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1;">0%</div>
+          <div style="margin-top:14px;font-size:14px;font-weight:500;color:rgba(255,255,255,.6);">Customer Satisfaction</div>
+        </div>
+        <div style="text-align:center;border-left:1px solid rgba(255,255,255,.1);padding:0 8px;">
+          <div id="stat2" style="font-size:clamp(38px,4.4vw,58px);font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1;">0+</div>
+          <div style="margin-top:14px;font-size:14px;font-weight:500;color:rgba(255,255,255,.6);">Years Experience</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" style="max-width:1080px;margin:0 auto;padding:110px 32px 30px;text-align:center;">
+    <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">About IfreightJa</div>
+    <h2 style="margin:0 auto;font-size:clamp(32px,4.4vw,58px);font-weight:900;letter-spacing:-.04em;line-height:1.04;max-width:20ch;">We make receiving your packages in Jamaica effortless.</h2>
+    <p style="margin:26px auto 0;max-width:62ch;color:#6E7479;font-size:18px;line-height:1.65;">IfreightJa is a modern freight forwarding service built for Jamaica. We give you a free U.S. shipping address, receive your online purchases, and deliver them to your door — quickly, affordably, and with full visibility every step of the way. Whether you are an individual shopper, a small business, or an e-commerce seller, we handle the logistics so you can focus on what matters.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;text-align:left;" class="ifj-feat-grid">
+      <div class="ifj-card-sm" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:46px;height:46px;border-radius:13px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="7" stroke="#11302D" stroke-width="2"/><circle cx="12" cy="12" r="2.4" fill="#13A69C"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:20px;font-weight:800;letter-spacing:-.02em;">Transparent</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Clear, upfront pricing with no hidden fees or surprises.</p>
+      </div>
+      <div class="ifj-card-sm" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:46px;height:46px;border-radius:13px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="#11302D" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:20px;font-weight:800;letter-spacing:-.02em;">Reliable</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Secure handling and real-time tracking on every shipment.</p>
+      </div>
+      <div class="ifj-card-sm" style="background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:30px 26px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+        <div style="width:46px;height:46px;border-radius:13px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:22px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#11302D" stroke-width="2"/><path d="M12 8v8M9.5 9.8c0-1 1.1-1.8 2.5-1.8s2.5.7 2.5 1.6c0 2.4-5 1.2-5 3.6 0 1 1.1 1.8 2.5 1.8s2.5-.8 2.5-1.8" stroke="#13A69C" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 style="margin:0 0 8px;font-size:20px;font-weight:800;letter-spacing:-.02em;">Affordable</h3>
+        <p style="margin:0;color:#6E7479;font-size:15px;line-height:1.55;">Fair, weight-based rates that respect your budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORLD MAP ================= -->
+  <section style="max-width:1280px;margin:0 auto;padding:110px 32px 30px;">
+    <div style="margin-bottom:50px;">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">Delivery network</div>
+      <h2 style="margin:0;font-size:clamp(34px,4.6vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1;max-width:18ch;">We bring your packages home to Jamaica, every day.</h2>
+    </div>
+    <div class="ifj-twocol" style="display:grid;grid-template-columns:1.7fr 1fr;gap:22px;align-items:stretch;">
+      <div style="position:relative;background:#11302D;border-radius:24px;overflow:hidden;min-height:440px;background-image:radial-gradient(circle, rgba(255,255,255,.10) 1px, transparent 1.4px);background-size:22px 22px;">
+        <div style="position:absolute;top:22px;left:24px;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:11px;letter-spacing:.05em;color:rgba(255,255,255,.4);border:1px dashed rgba(255,255,255,.2);padding:6px 12px;border-radius:8px;">delivery map &middot; live routes to Jamaica</div>
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;">
+          <g stroke="#13A69C" stroke-width=".5" fill="none" stroke-dasharray="3 2.4" style="animation:ifj-dash 1.4s linear infinite;">
+            <path d="M28 60 Q24 38 24 44"/><path d="M28 60 Q22 34 22 30"/><path d="M28 60 Q40 30 47 36"/><path d="M28 60 Q52 30 76 48"/>
+          </g>
+        </svg>
+        <div style="position:absolute;transform:translate(-50%,-50%);left:22%;top:30%;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="position:relative;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:999px;background:#fff;"></span><span style="position:absolute;inset:0;border-radius:999px;background:#fff;animation:ifj-ping 2s ease-out infinite;"></span></div><span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;">Canada</span></div>
+        <div style="position:absolute;transform:translate(-50%,-50%);left:24%;top:44%;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="position:relative;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:999px;background:#fff;"></span><span style="position:absolute;inset:0;border-radius:999px;background:#fff;animation:ifj-ping 2s ease-out infinite;"></span></div><span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;">USA</span></div>
+        <div style="position:absolute;transform:translate(-50%,-50%);left:47%;top:36%;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="position:relative;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:999px;background:#fff;"></span><span style="position:absolute;inset:0;border-radius:999px;background:#fff;animation:ifj-ping 2s ease-out infinite;"></span></div><span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;">UK</span></div>
+        <div style="position:absolute;transform:translate(-50%,-50%);left:76%;top:48%;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="position:relative;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:999px;background:#fff;"></span><span style="position:absolute;inset:0;border-radius:999px;background:#fff;animation:ifj-ping 2s ease-out infinite;"></span></div><span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;">China</span></div>
+        <div style="position:absolute;transform:translate(-50%,-50%);left:28%;top:60%;display:flex;flex-direction:column;align-items:center;gap:6px;"><div style="position:relative;width:14px;height:14px;"><span style="position:absolute;inset:0;border-radius:999px;background:#13A69C;"></span><span style="position:absolute;inset:0;border-radius:999px;background:#13A69C;animation:ifj-ping 2s ease-out infinite;"></span></div><span style="font-size:11px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;">Jamaica</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:#fff;border:1px solid #ECECEC;border-radius:20px;padding:26px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:clamp(34px,3vw,46px);font-weight:900;letter-spacing:-.04em;line-height:1;">1,200<span style="color:#13A69C;">+</span></div>
+          <div style="margin-top:10px;color:#6E7479;font-size:14.5px;font-weight:500;">Daily shipments processed</div>
+        </div>
+        <div style="background:#fff;border:1px solid #ECECEC;border-radius:20px;padding:26px 26px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:clamp(34px,3vw,46px);font-weight:900;letter-spacing:-.04em;line-height:1;">2&ndash;5 <span style="font-size:.5em;font-weight:700;color:#6E7479;">days</span></div>
+          <div style="margin-top:10px;color:#6E7479;font-size:14.5px;font-weight:500;">Average delivery time from the U.S.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section style="max-width:1080px;margin:0 auto;padding:110px 32px 30px;text-align:center;">
+    <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">Loved by customers</div>
+    <div style="color:#13A69C;font-size:20px;letter-spacing:4px;margin-bottom:30px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <blockquote id="testimonialQuote" style="margin:0;font-size:clamp(24px,3.2vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.22;max-width:18ch;margin:0 auto;min-height:1.22em;transition:opacity .4s ease;"></blockquote>
+    <div style="margin-top:36px;display:flex;align-items:center;justify-content:center;gap:14px;">
+      <div id="testimonialInitials" style="width:48px;height:48px;border-radius:999px;background:#11302D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;"></div>
+      <div style="text-align:left;">
+        <div id="testimonialName" style="font-weight:800;font-size:16px;letter-spacing:-.02em;"></div>
+        <div id="testimonialLocation" style="color:#6E7479;font-size:14px;"></div>
+      </div>
+    </div>
+    <div style="margin-top:34px;display:flex;align-items:center;justify-content:center;gap:18px;">
+      <button onclick="prevTestimonial()" class="ifj-nav-arrow-l" aria-label="Previous" style="width:44px;height:44px;border-radius:999px;border:1px solid #ECECEC;background:#fff;cursor:pointer;font-size:18px;color:#11302D;display:inline-flex;align-items:center;justify-content:center;transition:all .25s ease;">&larr;</button>
+      <div id="testimonialDots" style="display:flex;align-items:center;gap:8px;"></div>
+      <button onclick="nextTestimonial()" class="ifj-nav-arrow-r" aria-label="Next" style="width:44px;height:44px;border-radius:999px;border:1px solid #ECECEC;background:#fff;cursor:pointer;font-size:18px;color:#11302D;display:inline-flex;align-items:center;justify-content:center;transition:all .25s ease;">&rarr;</button>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section style="max-width:880px;margin:0 auto;padding:110px 32px 30px;">
+    <div style="text-align:center;margin-bottom:54px;">
+      <div style="font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#13A69C;font-weight:700;margin-bottom:18px;">FAQ</div>
+      <h2 style="margin:0;font-size:clamp(32px,4.2vw,56px);font-weight:900;letter-spacing:-.04em;line-height:1;">Questions, answered.</h2>
+    </div>
+    <div id="faqContainer" style="display:flex;flex-direction:column;gap:14px;"></div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section style="max-width:1280px;margin:0 auto;padding:120px 32px 60px;">
+    <div style="position:relative;background:#11302D;border-radius:30px;overflow:hidden;padding:96px 40px;text-align:center;">
+      <div style="position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:620px;height:620px;border-radius:999px;background:radial-gradient(circle,rgba(19,166,156,.35) 0%,rgba(19,166,156,0) 65%);pointer-events:none;"></div>
+      <div style="position:relative;">
+        <h2 style="margin:0 auto;color:#fff;font-size:clamp(38px,6vw,82px);font-weight:900;letter-spacing:-.045em;line-height:.98;max-width:14ch;">Ready to ship <span style="color:#13A69C;">smarter?</span></h2>
+        <p style="margin:26px auto 0;color:rgba(255,255,255,.7);font-size:18px;line-height:1.6;max-width:48ch;">Join thousands of satisfied customers shipping to Jamaica with speed, transparency and rates that actually make sense.</p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:40px;">
+          <a href="#signup" class="ifj-btn-primary" style="font-size:16px;font-weight:700;background:#13A69C;color:#fff;padding:17px 34px;border-radius:999px;box-shadow:0 12px 34px rgba(19,166,156,.45);transition:transform .25s ease;">Get Started</a>
+          <a href="#signup" class="ifj-btn-secondary" style="font-size:16px;font-weight:600;color:#fff;padding:17px 32px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.26);transition:background .25s ease,transform .25s ease;">Create Free Account</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer id="contact" style="width:100%;background:#11302D;color:#fff;">
+    <div style="max-width:1280px;margin:0 auto;padding:80px 32px 36px;">
+      <div class="ifj-twocol ifj-footer-grid" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px 28px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.1);">
+        <div style="grid-column:span 1;min-width:220px;">
+          <div style="margin-bottom:22px;">
+            <span style="font-size:24px;font-weight:900;color:#fff;">IfreightJa</span>
+          </div>
+          <p style="margin:0 0 22px;color:rgba(255,255,255,.6);font-size:14.5px;line-height:1.6;max-width:30ch;">Fast, Smart and Seamless.</p>
+          <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:6px 6px 6px 16px;display:flex;align-items:center;gap:8px;max-width:300px;">
+            <input placeholder="Your email" style="flex:1;min-width:0;border:none;outline:none;background:transparent;color:#fff;font-family:'Satoshi',sans-serif;font-size:14px;"/>
+            <button style="border:none;background:#13A69C;color:#fff;font-family:'Satoshi',sans-serif;font-weight:700;font-size:13px;padding:10px 16px;border-radius:10px;cursor:pointer;white-space:nowrap;">Subscribe</button>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:22px;">
+            <a href="#contact" class="ifj-social" style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:13px;font-weight:700;transition:all .25s ease;">ig</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;">Services</div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <a href="#services" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Air Freight</a>
+            <a href="#services" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Ocean Freight</a>
+            <a href="#services" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Express Shipping</a>
+            <a href="#services" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Customs</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;">Resources</div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <a href="#how" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">How It Works</a>
+            <a href="#pricing" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Rates</a>
+            <a href="#signup" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Tracking</a>
+            <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Blog</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:18px;">Support</div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Help Center</a>
+            <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">FAQ</a>
+            <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.78);font-size:14.5px;font-weight:500;transition:color .2s ease;">Shipping Policy</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:24px 48px;padding:36px 0;border-bottom:1px solid rgba(255,255,255,.1);">
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;">Contact</div>
+          <div style="color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.7;">info@ifreightja.com<br/>+1 (876) 295-6862<br/>Kingston, Jamaica</div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;">Business hours</div>
+          <div style="color:rgba(255,255,255,.78);font-size:14.5px;line-height:1.7;">Mon&ndash;Fri &middot; 9:00am &ndash; 5:00pm<br/>Saturday &middot; 9:00am &ndash; 5:00pm<br/>Support during working hours</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;padding-top:28px;">
+        <div style="color:rgba(255,255,255,.5);font-size:13.5px;">&copy; 2026 IfreightJa. All rights reserved.</div>
+        <div style="display:flex;gap:26px;">
+          <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.6);font-size:13.5px;transition:color .2s ease;">Terms</a>
+          <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.6);font-size:13.5px;transition:color .2s ease;">Privacy Policy</a>
+          <a href="#contact" class="ifj-footer-link" style="color:rgba(255,255,255,.6);font-size:13.5px;transition:color .2s ease;">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// Data
+const steps = [
+  { n: '1', title: 'Create an Account', desc: 'Sign up free and unlock your dashboard in minutes.' },
+  { n: '2', title: 'Shop Online', desc: 'Buy from any U.S. store or marketplace you love.' },
+  { n: '3', title: 'Ship to Your U.S. Address', desc: 'Use your free address at checkout.' },
+  { n: '4', title: 'We Receive Your Items', desc: 'Your packages arrive safely at our U.S. warehouse.' },
+  { n: '5', title: 'We Ship to Jamaica', desc: 'Choose air or ocean freight to suit your budget.' },
+  { n: '6', title: 'Pickup or Delivery', desc: 'Collect locally or get it at your door.' },
+];
+
+const services = [
+  { title: 'Air Freight', desc: 'Fast delivery by air to Jamaica for time-sensitive cargo.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 17l18-7-7 11-2-5-9 1z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 7h5" stroke="#13A69C" stroke-width="2" stroke-linecap="round"/></svg>' },
+  { title: 'Ocean Freight', desc: 'Cost-effective sea freight for large, heavy shipments.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 10l8-3 8 3-1 7H5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21c1.5 1 3 1 4.5 0s3-1 4.5 0 3 1 4.5 0 3-1 4.5 0" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+  { title: 'Express Shipping', desc: 'Priority handling for your most urgent packages.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 3L5 13h6l-1 8 8-10h-6z" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+  { title: 'Commercial Freight', desc: 'Scalable freight solutions for growing businesses.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="1.6" stroke="currentColor" stroke-width="2"/><path d="M9 9h2M13 9h2M9 13h2M13 13h2" stroke="#13A69C" stroke-width="2" stroke-linecap="round"/><path d="M10 20v-3h4v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+  { title: 'Customs Clearance', desc: 'We handle the paperwork and duties end to end.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#13A69C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' },
+  { title: 'Door-to-Door Delivery', desc: 'Seamless pickup and delivery, anywhere in Jamaica.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21c4-4 6-7 6-10a6 6 0 10-12 0c0 3 2 6 6 10z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="11" r="2.2" stroke="#13A69C" stroke-width="2"/></svg>' },
+  { title: 'Business Shipping', desc: 'Dedicated accounts and rates for e-commerce sellers.', icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="5" y="12" width="3" height="6" rx="1" stroke="currentColor" stroke-width="2"/><rect x="10.5" y="8" width="3" height="10" rx="1" stroke="#13A69C" stroke-width="2"/><rect x="16" y="5" width="3" height="13" rx="1" stroke="currentColor" stroke-width="2"/></svg>' },
+];
+
+const rates = [
+  { weight: '1', unit: 'lb', price: '$974.58' },
+  { weight: '2', unit: 'lbs', price: '$1,389.69' },
+  { weight: '3', unit: 'lbs', price: '$1,784.18' },
+  { weight: '4', unit: 'lbs', price: '$2,118.33' },
+  { weight: '5', unit: 'lbs', price: '$2,468.66' },
+  { weight: '6', unit: 'lbs', price: '$3,142.84' },
+  { weight: '7', unit: 'lbs', price: '$3,447.54' },
+  { weight: '8', unit: 'lbs', price: '$3,762.67' },
+  { weight: '9', unit: 'lbs', price: '$4,114.36' },
+  { weight: '10', unit: 'lbs', price: '$4,427.90' },
+];
+
+const testimonials = [
+  { quote: 'IfreightJa completely changed how I import for my boutique. My U.S. address was ready in minutes and the rates cut my shipping bill almost in half.', name: 'Shanice Brown', location: 'Kingston, Jamaica', initials: 'SB' },
+  { quote: 'Tracking is genuinely real-time. I always know exactly where my barrels are, and customs clearance was handled without me lifting a finger.', name: 'Marcus Reid', location: 'Montego Bay, Jamaica', initials: 'MR' },
+  { quote: 'As an e-commerce seller, fast and predictable delivery is everything. IfreightJa feels like having a logistics team built into my business.', name: 'Tanya Campbell', location: 'Mandeville, Jamaica', initials: 'TC' },
+];
+
+const faqData = [
+  { q: 'How do I track my shipment?', a: 'Every package gets a unique tracking number the moment it reaches your free U.S. address. Enter it in the tracking bar at the top of this page or in your dashboard to see live status, location and estimated delivery.' },
+  { q: 'How much does shipping cost?', a: 'Rates are calculated by weight and dimensions, with transparent pricing shown before you ever confirm — so you always know your per-pound cost up front, with no hidden fees.' },
+  { q: 'How long does delivery take?', a: 'Express air freight typically lands in 2–5 business days, while ocean freight for larger or heavier shipments takes 2–4 weeks. You will always see an estimated delivery window before you ship.' },
+  { q: 'Are there restricted items?', a: 'Hazardous materials, perishables, firearms and certain regulated goods cannot be shipped. Our team flags restricted items during intake and will reach out before anything is processed.' },
+  { q: 'Is my shipment insured?', a: 'Standard coverage is included on every shipment, and additional declared-value insurance is available at checkout for high-value goods — giving you full peace of mind door to door.' },
+];
+
+const statsData = [
+  { target: 10000, suffix: '+', format: true },
+  { target: 98, suffix: '%', format: false },
+  { target: 5, suffix: '+', format: false },
+];
+
+// Render steps
+document.getElementById('stepsGrid').innerHTML = steps.map(s =>
+  `<div style="text-align:center;display:flex;flex-direction:column;align-items:center;">
+    <div class="ifj-step-num" style="width:68px;height:68px;border-radius:999px;background:#fff;border:2px solid #ECECEC;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;letter-spacing:-.03em;color:#11302D;box-shadow:0 8px 24px rgba(17,48,45,.06);transition:all .3s ease;">${s.n}</div>
+    <h4 style="margin:22px 0 7px;font-size:16.5px;font-weight:800;letter-spacing:-.02em;">${s.title}</h4>
+    <p style="margin:0;color:#6E7479;font-size:13.5px;line-height:1.5;max-width:18ch;">${s.desc}</p>
+  </div>`
+).join('');
+
+// Render services
+document.getElementById('servicesGrid').innerHTML = services.map(s =>
+  `<a href="#contact" class="ifj-card" style="color:inherit;background:#fff;border:1px solid #ECECEC;border-radius:22px;padding:28px 24px 24px;display:flex;flex-direction:column;min-height:200px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;">
+    <div style="width:50px;height:50px;border-radius:14px;background:#EEF3F2;display:flex;align-items:center;justify-content:center;margin-bottom:auto;color:#11302D;">${s.icon}</div>
+    <h3 style="margin:24px 0 7px;font-size:18.5px;font-weight:800;letter-spacing:-.02em;">${s.title}</h3>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;">
+      <p style="margin:0;color:#6E7479;font-size:13.5px;line-height:1.5;">${s.desc}</p>
+      <span style="flex:0 0 auto;width:30px;height:30px;border-radius:999px;background:#11302D;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;">&rarr;</span>
+    </div>
+  </a>`
+).join('');
+
+// Render rates
+document.getElementById('ratesTable').innerHTML = rates.map(r =>
+  `<div class="ifj-rate-row" style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-top:1px solid #F0F1F1;border-radius:13px;transition:background .2s ease;">
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="width:40px;height:40px;border-radius:11px;background:#EEF3F2;color:#11302D;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;letter-spacing:-.02em;flex:0 0 auto;">${r.weight}</span>
+      <span style="font-size:16px;font-weight:600;color:#11302D;">${r.unit}</span>
+    </div>
+    <span style="font-size:18px;font-weight:800;letter-spacing:-.02em;color:#11302D;">${r.price}</span>
+  </div>`
+).join('');
+
+// Render FAQ
+let faqOpen = 0;
+function renderFAQ() {
+  document.getElementById('faqContainer').innerHTML = faqData.map((f, i) => {
+    const open = faqOpen === i;
+    return `<div class="ifj-faq-item" style="background:#fff;border:1px solid #ECECEC;border-radius:18px;padding:6px 26px;transition:border-color .25s ease;">
+      <button onclick="toggleFaq(${i})" style="width:100%;border:none;background:transparent;cursor:pointer;padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;text-align:left;font-family:'Satoshi',sans-serif;">
+        <span style="font-size:18px;font-weight:700;letter-spacing:-.02em;color:#11302D;">${f.q}</span>
+        <span style="flex:0 0 auto;width:30px;height:30px;border-radius:999px;background:${open ? '#13A69C' : '#11302D'};color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;transition:background .25s ease;">${open ? '−' : '+'}</span>
+      </button>
+      <div style="max-height:${open ? '260px' : '0'};opacity:${open ? 1 : 0};overflow:hidden;transition:max-height .4s ease,opacity .4s ease;">
+        <p style="margin:0 0 22px;color:#6E7479;font-size:15.5px;line-height:1.6;max-width:62ch;">${f.a}</p>
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleFaq(i) { faqOpen = faqOpen === i ? -1 : i; renderFAQ(); }
+renderFAQ();
+
+// Testimonials
+let activeT = 0;
+let tTimer;
+function renderTestimonial() {
+  const t = testimonials[activeT];
+  document.getElementById('testimonialQuote').textContent = '“' + t.quote + '”';
+  document.getElementById('testimonialInitials').textContent = t.initials;
+  document.getElementById('testimonialName').textContent = t.name;
+  document.getElementById('testimonialLocation').textContent = t.location;
+  document.getElementById('testimonialDots').innerHTML = testimonials.map((_, i) =>
+    `<button onclick="goTestimonial(${i})" style="width:${i === activeT ? '28px' : '9px'};height:9px;border-radius:999px;background:${i === activeT ? '#13A69C' : '#C6CCCA'};border:none;padding:0;cursor:pointer;transition:all .3s ease;"></button>`
+  ).join('');
+}
+function nextTestimonial() { activeT = (activeT + 1) % testimonials.length; renderTestimonial(); startAutoplay(); }
+function prevTestimonial() { activeT = (activeT - 1 + testimonials.length) % testimonials.length; renderTestimonial(); startAutoplay(); }
+function goTestimonial(i) { activeT = i; renderTestimonial(); startAutoplay(); }
+function startAutoplay() { clearInterval(tTimer); tTimer = setInterval(nextTestimonial, 5500); }
+renderTestimonial();
+startAutoplay();
+
+// Nav scroll
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+// Mobile menu
+function toggleMenu() {
+  const m = document.getElementById('mobileMenu');
+  const open = m.style.opacity === '1';
+  if (open) { closeMenu(); } else {
+    m.style.opacity = '1'; m.style.visibility = 'visible'; m.style.pointerEvents = 'auto';
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMenu() {
+  const m = document.getElementById('mobileMenu');
+  m.style.opacity = '0'; m.style.visibility = 'hidden'; m.style.pointerEvents = 'none';
+  document.body.style.overflow = '';
+}
+
+// Stats counter animation
+let countersStarted = false;
+const statsObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting && !countersStarted) {
+      countersStarted = true;
+      const dur = 1700;
+      const start = performance.now();
+      function step(now) {
+        const p = Math.min(1, (now - start) / dur);
+        const ease = 1 - Math.pow(1 - p, 3);
+        statsData.forEach(function(s, i) {
+          const v = Math.round(s.target * ease);
+          document.getElementById('stat' + i).textContent = (s.format ? v.toLocaleString('en-US') : String(v)) + s.suffix;
+        });
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+  });
+}, { threshold: 0.3 });
+statsObserver.observe(document.getElementById('statsSection'));
+</script>
+</body>
+</html>
